@@ -22,7 +22,7 @@ export class AwsGlueClient implements MetastoreClient {
     const { DatabaseList = [] } = await this.glueClient.send(query)
     return DatabaseList.map((db) => ({
       name: db.Name!,
-      description: db.Description!,
+      description: db.Description ?? db.Parameters?.comment,
       tables: []
     }))
   }
@@ -73,10 +73,14 @@ export class AwsGlueClient implements MetastoreClient {
       value
     }))
 
+    // Spark seems to write table comments in DataFrame schemas to a table property called "comment"
+    // instead of using the description field
+    const description = table.Description ?? Parameters.comment
+
     return {
       name: table.Name!,
       databaseName: table.DatabaseName!,
-      description: table.Description!,
+      description,
       location: Location!,
       properties,
       columns: Columns.map((c) => {
