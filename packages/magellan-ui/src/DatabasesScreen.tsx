@@ -1,10 +1,8 @@
 import { gql } from '@apollo/client'
-import DatabaseIcon from '@mui/icons-material/ViewList'
 import {
   Divider,
   List,
   ListItemButton,
-  ListItemIcon,
   ListItemText,
   Paper
 } from '@mui/material'
