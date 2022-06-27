@@ -14,8 +14,8 @@ import { useGetDatabaseTablesScreenQuery } from './generated/graphql'
 import { Loading } from './Loading'
 
 const query = gql`
-  query GetDatabaseTablesScreen($input: GetTablesByDatabaseNameInput!) {
-    getTablesByDatabaseName(input: $input) {
+  query GetDatabaseTablesScreen($input: GetTablesInput!) {
+    getTables(input: $input) {
       tables {
         name
         description
@@ -40,7 +40,7 @@ export function DatabaseTablesScreen() {
     return <Loading />
   }
 
-  const { tables = [] } = data?.getTablesByDatabaseName ?? {}
+  const { tables = [] } = data?.getTables ?? {}
   return (
     <>
       <Breadcrumbs>

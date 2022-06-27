@@ -1,8 +1,8 @@
 import { Context } from './createContext'
 import {
   GetDatabasesOutput,
-  GetTableByNameOutput,
-  GetTablesByDatabaseNameOutput,
+  GetTableOutput,
+  GetTablesOutput,
   Resolvers,
   SearchTablesOutput
 } from './generated/graphql'
@@ -18,11 +18,11 @@ export const resolvers: Resolvers<Context> = {
       return { databases }
     },
 
-    async getTablesByDatabaseName(
+    async getTables(
       _,
       { input },
       { metastoreClient }
-    ): Promise<GetTablesByDatabaseNameOutput> {
+    ): Promise<GetTablesOutput> {
       const tables = await metastoreClient.getTablesByDatabaseName(
         input.databaseName
       )
@@ -40,11 +40,7 @@ export const resolvers: Resolvers<Context> = {
       }
     },
 
-    async getTableByName(
-      _,
-      { input },
-      { metastoreClient }
-    ): Promise<GetTableByNameOutput> {
+    async getTable(_, { input }, { metastoreClient }): Promise<GetTableOutput> {
       const table = await metastoreClient.getTableByName(
         input.databaseName,
         input.tableName

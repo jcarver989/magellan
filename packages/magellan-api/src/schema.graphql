@@ -1,22 +1,26 @@
 type Query {
+  "Retrives a list of databases"
   getDatabases: GetDatabasesOutput!
 
-  getTableByName(input: GetTableByNameInput!): GetTableByNameOutput!
+  "Searches for tables based on keywords"
   searchTables(input: SearchTablesInput!): SearchTablesOutput!
-  getTablesByDatabaseName(
-    input: GetTablesByDatabaseNameInput!
-  ): GetTablesByDatabaseNameOutput!
+
+  "Retrives a list of tables in a given database"
+  getTables(input: GetTablesInput!): GetTablesOutput!
+
+  "Retrives a single table given the database and table name"
+  getTable(input: GetTableInput!): GetTableOutput!
 }
 
 type GetDatabasesOutput {
   databases: [Database!]!
 }
 
-input GetTablesByDatabaseNameInput {
+input GetTablesInput {
   databaseName: String!
 }
 
-type GetTablesByDatabaseNameOutput {
+type GetTablesOutput {
   tables: [Table!]!
 }
 
@@ -28,12 +32,12 @@ type SearchTablesOutput {
   tables: [Table!]!
 }
 
-input GetTableByNameInput {
+input GetTableInput {
   databaseName: String!
   tableName: String!
 }
 
-type GetTableByNameOutput {
+type GetTableOutput {
   table: Table
 }
 

@@ -5,8 +5,8 @@ import { useGetTableDetailsQuery } from './generated/graphql'
 import { Loading } from './Loading'
 
 const query = gql`
-  query GetTableDetails($input: GetTableByNameInput!) {
-    getTableByName(input: $input) {
+  query GetTableDetails($input: GetTableInput!) {
+    getTable(input: $input) {
       table {
         name
         databaseName
@@ -37,7 +37,7 @@ export function DatabaseTableScreen() {
     return <Loading />
   }
 
-  const table = data?.getTableByName.table
+  const table = data?.getTable.table
   if (table) {
     return <DatabaseTableDetails table={table} />
   } else {
