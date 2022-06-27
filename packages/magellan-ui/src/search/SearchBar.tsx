@@ -19,7 +19,7 @@ export function SearchBar(props: SearchBarProps) {
   const { onChange, onClear, loading } = props
   return (
     <TextField
-      placeholder="Find tables by name, column or tags"
+      placeholder="Find tables by name, column or tag"
       value={searchText}
       autoComplete="off"
       InputProps={{
