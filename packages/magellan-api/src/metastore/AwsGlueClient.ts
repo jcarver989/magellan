@@ -19,8 +19,8 @@ export class AwsGlueClient implements MetastoreClient {
       MaxResults: 100 // max
     })
 
-    const { DatabasesScreen = [] } = await this.glueClient.send(query)
-    return DatabasesScreen.map((db) => ({
+    const { DatabaseList = [] } = await this.glueClient.send(query)
+    return DatabaseList.map((db) => ({
       name: db.Name!,
       description: db.Description!,
       tables: []
