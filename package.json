@@ -1,0 +1,6 @@
+{
+  "name": "magellan",
+  "workspaces": [
+    "packages/magellan-api"
+  ]
+}
