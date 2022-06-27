@@ -1,0 +1,2 @@
+schema: 'packages/magellan-api/src/schema.graphql'
+documents: 'packages/magellan-ui/src/**/*.{graphql,js,ts,jsx,tsx}'
