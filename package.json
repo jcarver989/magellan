@@ -1,6 +1,12 @@
 {
   "name": "magellan",
   "workspaces": [
-    "packages/magellan-api"
-  ]
+    "packages/magellan-api",
+    "packages/magellan-ui"
+  ],
+  "dependencies": {
+    "@apollo/client": "^3.6.9",
+    "@graphql-codegen/typescript-react-query": "^3.5.14",
+    "graphql": "^16.5.0"
+  }
 }
