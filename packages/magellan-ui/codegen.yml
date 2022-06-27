@@ -1,0 +1,9 @@
+overwrite: true
+schema: '../magellan-api/src/schema.graphql'
+documents: 'src/**/*.tsx'
+generates:
+  src/generated/graphql.tsx:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo'

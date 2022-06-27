@@ -1,0 +1,25 @@
+@font-face {
+  font-family: HkGrotesk;
+  font-weight: normal;
+  src: url('./fonts/HKGrotesk-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: HkGrotesk;
+  font-weight: bold;
+  src: url('./fonts/HKGrotesk-Bold.otf') format('opentype');
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  background: #eee;
+  font-family: HkGrotesk;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  margin: 2rem 0 2rem 0;
+}
