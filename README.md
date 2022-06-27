@@ -2,6 +2,10 @@
 
 Magellan makes it easier for your data scientists, machine learning engineers, and analysts to discover data within your organization by providing a nicer UI on top of the [AWS Glue Data Catalog](https://docs.aws.amazon.com/glue/latest/dg/components-overview.html#data-catalog-intro).
 
+## Status
+
+Magellan is currently just an **alpha preview**.
+
 ## Features
 
 ### Full text search for tables defined in your metastore
@@ -16,7 +20,7 @@ Magellan makes it easier for your data scientists, machine learning engineers, a
 
 ![Schema](./docs/schema-browsing.png)
 
-### Future Features
+### Planned Future Features
 
 - Lineage
 - OIDC authentication (e.g. Okta)
@@ -31,7 +35,7 @@ Magellan might be a good fit for you if:
 
 - You'd like to expose AWS Glue's catalog via a nicer UI / allow employees to authenticate via OIDC without needing AWS credentials.
 
-- You want to get up and running with a minimal amount of infrastructure and don't want to have to touch Hadoop, K8s and/or EKS
+- You want to get up and running with a minimal amount of infrastructure (just copy Magellan' React UI to S3 + deploy a Lambda APi to talk to Glue). And you don't want to have to touch Hadoop, K8s and/or EKS and deploy a UI, a search service, a metadata ingestion service, and a databasse just to run your data catalog.
 
 ### Alternatives
 
