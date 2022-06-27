@@ -59,10 +59,6 @@ export function DatabaseTablesScreen() {
           {tables.map((t, i) => {
             const { properties = [], description } = t
             const showDivider = i !== tables.length - 1
-            const comment =
-              description ??
-              properties.find((_) => _.name === 'comment')?.value ??
-              ''
 
             return (
               <Fragment key={t.name}>
@@ -74,7 +70,7 @@ export function DatabaseTablesScreen() {
                   <ListItemText
                     primary={`${t.name}`}
                     primaryTypographyProps={{ fontWeight: 'bold' }}
-                    secondary={comment}
+                    secondary={description}
                   />
                 </ListItemButton>
                 {showDivider && <Divider />}

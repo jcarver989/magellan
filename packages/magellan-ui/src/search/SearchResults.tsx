@@ -1,11 +1,4 @@
-import DatabaseIcon from '@mui/icons-material/ViewList'
-import {
-  Divider,
-  List,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText
-} from '@mui/material'
+import { Divider, List, ListItemButton, ListItemText } from '@mui/material'
 import { Fragment } from 'react'
 import { Table as GqlTable } from '../generated/graphql'
 
@@ -26,17 +19,13 @@ export function SearchResults(props: SearchResultsProps) {
       {tables.map((t, i) => {
         const { properties = [], description } = t
         const showDivider = i !== tables.length - 1
-        const comment =
-          description ??
-          properties.find((_) => _.name === 'comment')?.value ??
-          'n/a'
 
         return (
           <Fragment key={t.name}>
             <ListItemButton onClick={() => onClick(t)}>
               <ListItemText
                 primary={`${t.databaseName}.${t.name}`}
-                secondary={comment}
+                secondary={description}
                 primaryTypographyProps={{
                   fontWeight: 'bold'
                 }}
