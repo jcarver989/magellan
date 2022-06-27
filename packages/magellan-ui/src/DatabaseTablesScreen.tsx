@@ -1,14 +1,14 @@
 import { gql } from '@apollo/client'
-import DatabaseIcon from '@mui/icons-material/ViewList'
 import {
   Breadcrumbs,
+  Divider,
   Link,
   List,
   ListItemButton,
-  ListItemIcon,
   ListItemText,
   Paper
 } from '@mui/material'
+import { Fragment } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useGetDatabaseTablesScreenQuery } from './generated/graphql'
 import { Loading } from './Loading'
@@ -41,7 +41,6 @@ export function DatabaseTablesScreen() {
   }
 
   const { tables = [] } = data?.getTablesByDatabaseName ?? {}
-
   return (
     <>
       <Breadcrumbs>
@@ -57,25 +56,29 @@ export function DatabaseTablesScreen() {
       <h2>Tables</h2>
       <Paper>
         <List>
-          {tables.map((t) => {
+          {tables.map((t, i) => {
             const { properties = [], description } = t
+            const showDivider = i !== tables.length - 1
             const comment =
               description ??
               properties.find((_) => _.name === 'comment')?.value ??
               ''
 
             return (
-              <ListItemButton
-                key={t.name}
-                onClick={() =>
-                  navigate(`/databases/${databaseName}/tables/${t.name}`)
-                }
-              >
-                <ListItemIcon>
-                  <DatabaseIcon />
-                </ListItemIcon>
-                <ListItemText primary={`${t.name}`} secondary={comment} />
-              </ListItemButton>
+              <Fragment key={t.name}>
+                <ListItemButton
+                  onClick={() =>
+                    navigate(`/databases/${databaseName}/tables/${t.name}`)
+                  }
+                >
+                  <ListItemText
+                    primary={`${t.name}`}
+                    primaryTypographyProps={{ fontWeight: 'bold' }}
+                    secondary={comment}
+                  />
+                </ListItemButton>
+                {showDivider && <Divider />}
+              </Fragment>
             )
           })}
         </List>

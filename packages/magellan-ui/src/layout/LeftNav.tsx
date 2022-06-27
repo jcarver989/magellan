@@ -92,7 +92,10 @@ function NavButton(props: {
     <ListItem disablePadding>
       <ListItemButton selected={isSelected} onClick={() => navigate(path)}>
         <ListItemIcon>{icon}</ListItemIcon>
-        <ListItemText primary={text} />
+        <ListItemText
+          primary={text}
+          primaryTypographyProps={{ fontWeight: 600 }}
+        />
       </ListItemButton>
     </ListItem>
   )

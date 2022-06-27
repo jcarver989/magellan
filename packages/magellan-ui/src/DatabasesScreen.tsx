@@ -47,10 +47,11 @@ export function DatabasesScreen() {
                 <ListItemButton
                   onClick={() => navigate(`/databases/${db.name}`)}
                 >
-                  <ListItemIcon>
-                    <DatabaseIcon />
-                  </ListItemIcon>
-                  <ListItemText primary={db.name} secondary={comment} />
+                  <ListItemText
+                    primary={db.name}
+                    primaryTypographyProps={{ fontWeight: 'bold' }}
+                    secondary={comment}
+                  />
                 </ListItemButton>
                 {showDivider && <Divider />}
               </Fragment>

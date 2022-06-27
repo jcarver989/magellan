@@ -34,12 +34,12 @@ export function SearchResults(props: SearchResultsProps) {
         return (
           <Fragment key={t.name}>
             <ListItemButton onClick={() => onClick(t)}>
-              <ListItemIcon>
-                <DatabaseIcon />
-              </ListItemIcon>
               <ListItemText
                 primary={`${t.databaseName}.${t.name}`}
                 secondary={comment}
+                primaryTypographyProps={{
+                  fontWeight: 'bold'
+                }}
               />
             </ListItemButton>
             {showDivider && <Divider />}

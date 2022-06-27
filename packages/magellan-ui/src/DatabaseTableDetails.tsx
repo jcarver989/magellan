@@ -1,6 +1,7 @@
 import {
   Breadcrumbs,
   Chip,
+  Divider,
   Link,
   List,
   ListItem,
