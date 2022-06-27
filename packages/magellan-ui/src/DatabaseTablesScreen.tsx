@@ -57,7 +57,7 @@ export function DatabaseTablesScreen() {
       <Paper>
         <List>
           {tables.map((t, i) => {
-            const { properties = [], description } = t
+            const { description } = t
             const showDivider = i !== tables.length - 1
 
             return (
