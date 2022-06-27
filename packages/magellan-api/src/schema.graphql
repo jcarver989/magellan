@@ -1,0 +1,65 @@
+type Query {
+  getDatabases: GetDatabasesOutput!
+
+  getTableByName(input: GetTableByNameInput!): GetTableByNameOutput!
+  searchTables(input: SearchTablesInput!): SearchTablesOutput!
+  getTablesByDatabaseName(
+    input: GetTablesByDatabaseNameInput!
+  ): GetTablesByDatabaseNameOutput!
+}
+
+type GetDatabasesOutput {
+  databases: [Database!]!
+}
+
+input GetTablesByDatabaseNameInput {
+  databaseName: String!
+}
+
+type GetTablesByDatabaseNameOutput {
+  tables: [Table!]!
+}
+
+input SearchTablesInput {
+  searchText: String!
+}
+
+type SearchTablesOutput {
+  tables: [Table!]!
+}
+
+input GetTableByNameInput {
+  databaseName: String!
+  tableName: String!
+}
+
+type GetTableByNameOutput {
+  table: Table
+}
+
+type Database {
+  name: String!
+  description: String
+  tables: [Table!]!
+}
+
+type Table {
+  name: String!
+  databaseName: String!
+  description: String
+  location: String!
+  owner: String
+  properties: [TableProperty!]!
+  columns: [Column!]!
+}
+
+type TableProperty {
+  name: String!
+  value: String!
+}
+
+type Column {
+  name: String!
+  type: String!
+  description: String
+}
